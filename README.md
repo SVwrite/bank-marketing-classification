@@ -52,8 +52,6 @@ Each model was evaluated using:
 
 ## Comparison Table
 
-## Comparison Table
-
 | ML Model Name | Accuracy | AUC | Precision | Recall | F1 | MCC |
 |---------------|----------|-----|-----------|--------|----|-----|
 | Logistic Regression | 0.8457 | 0.9079 | 0.4182 | 0.8147 | 0.5527 | 0.5092 |
