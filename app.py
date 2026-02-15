@@ -263,13 +263,19 @@ with tab2:
 
             if compute_metrics_flag:
 
-                st.subheader("Evaluation Metrics")
-                metrics_table = compute_metrics(y_true, y_pred, y_prob)
-                st.table(metrics_table)
+                st.subheader("Evaluation Summary")
 
-                st.subheader("Confusion Matrix")
                 cm = confusion_matrix(y_true, y_pred)
-                render_confusion_matrix(cm)
+                metrics_table = compute_metrics(y_true, y_pred, y_prob)
+
+                colA, colB = st.columns([1, 1])
+
+                with colA:
+                    render_confusion_matrix(cm)
+
+                with colB:
+                    st.table(metrics_table)
+
 
                 # -------- TOP-X% ANALYSIS --------
                 st.divider()
@@ -288,7 +294,7 @@ with tab2:
                 If the bank targets only the **top {top_percent}%**
                 of customers ranked by predicted probability:
 
-                - Expected conversion rate: **{conversion_rate:.3f}**
+                - Expected conversion rate: **{conversion_rate:.3f}** (**{selected_display}**)
                 - Compared to baseline (~0.11–0.12), this represents
                   a substantial improvement in marketing efficiency.
 
